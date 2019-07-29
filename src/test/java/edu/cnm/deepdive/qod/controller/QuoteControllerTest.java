@@ -52,7 +52,7 @@ class QuoteControllerTest {
 
   @Test
   void get404() throws Exception {
-    mockMvc.perform(get("/quotes/11111111-1111-1111-1111-1111-111111111111"))
+    mockMvc.perform(get("/quotes/01234567-89AB-CDEF-0123-456789ABCDEF"))
         .andExpect(MockMvcResultMatchers.status().isNotFound());
   }
 
@@ -60,7 +60,7 @@ class QuoteControllerTest {
   void postQuote() throws Exception {
     mockMvc.perform(
         post("/quotes")
-        .content("{\"text\" \"Be nice.\"}")
+        .content("{\"text\": \"Be nice.\"}")
         .contentType(MediaType.APPLICATION_JSON)
         .accept(MediaType.APPLICATION_JSON)
         )
